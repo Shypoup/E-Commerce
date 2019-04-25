@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html>
+
+    <title>E-Commerce</title>
+  <meta charset="utf-8">
+   <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon" sizes="20x20" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+   
+  <link rel="stylesheet" href="CSS/Style.css">
+<script type="text/javascript" src="JS/Script.css"></script>
+
+
+
+     <body>
+  
+<!--------------------------Start Vertical Nav Bar------------------->
+       
+        <div class="navcontainer container-flued">
+      <nav class=" navbar navbar-expand-sm  fixed-top ">
+           <!--      Logo in nav bar-->
+       <a class="navbar-brand text-white" href="#"> <img   src="Images/logo.png"  alt="logo"  style="width:80px; height:40px;" ></a>
+  
+           <!--            Nav bar Items-->
+        <ul class="nav navbar-nav  ml-auto text-white">
+          <li class="nav-item "><a class="nav-link  " href="#"><i class=" fa fa-home fa-2x"></i>Home</a></li>
+            <li class="nav-item"><a class="nav-link " href="#"><i class=" fa fa-user-tie fa-2x"></i> Profile</a></li>
+          
+          <li class="nav-item"><a class="nav-link " href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in-alt fa-2x"></i>Login</a></li>
+            
+            
+          </ul>
+        </nav>
+          
+       
+    </div><br><br><br>
+    
+<!--  End Vertical Nav bar  -->
+<!-------------------------- Start login Modal ----------->
+
+         <div class="modal" id="loginModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+          <h4 class="modal-title"><i class="fa fa-sign-in-alt "></i>Login</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <form action="/action_page.php" class="was-validated">
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" maxlength="16"  minlength="8" required>
+    <div class="valid-feedback">Valid.</div>
+    <div class="invalid-feedback">Please fill out this field.</div>
+  </div>
+  
+  <button type="submit" class="btn btn-danger btn-block">Login</button>
+   <center><a href="#" class="logina" data-toggle="modal" data-target="#registerModal" data-dismiss="loginModal">have no account?</a></center>
+</form>
+      </div>
+
+     
+
+    </div>
+  </div>
+</div>
+  <!--------------------------End  Login Modal -----------> 
+         
+         
+   <!-------------------------- Start Register Modal ----------->      
+         
+         
+<!-- The Modal -->
+<div class="modal" id="registerModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fa fa-plus"></i>Create Account</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <form action="" name="adduser">
+  <div class="form-group"> 
+    <label for="firstname" >First Name:</label>
+    <input type="text" class="form-control" id="firstname" required>
+  </div>
+    <div class="form-group"> 
+    <label for="lastname" >Last Name:</label>
+    <input type="text" class="form-control" id="lastname" required>
+  </div>
+    <div class="form-group"> 
+    <label for="phone" >Phone:</label>
+    <input type="text" class="form-control" id="phone" required>
+  </div>
+    <div class="form-group"> 
+    <label for="phone" >Photo:</label>
+    <input type="file" class="form-control" id="phone" required>
+  </div>
+    
+  <div class="form-group"> 
+    <label for="email" >Email:</label>
+    <input type="email" class="form-control" id="email" required>
+  </div>
+     <div class="form-group">
+<label for="jobtitle"  >Job Title:</label>
+  <select class="form-control" id="MT">
+      <option>Customer</option>
+      <option>Marketing Director</option>
+    <option>Marketing Team Leader</option>
+    <option>Marketing Trainee</option>
+    
+  </select>
+</div>
+  <div class="form-group">
+    <label for="password" >Password:</label>
+    <input type="password" class="form-control" id="password" axlength="16"  minlength="8" required>
+  </div>
+ 
+  <button type="submit" class="btn btn-danger btn-block">Submit</button>
+</form>
+      </div>
+
+     
+     
+    </div>
+  </div>
+</div>
+<!--End of Model     -->
+         
+         
+         
+         
+         
+         
+      <!--------------------------Start Horizintal Nav ------------------->   
+         <div class="row" > 
+    <div class="dropdown dropright col-lg-3">
+  <button type="button" class="showinfohome btn btn-dark" data-toggle="dropdown"><i class="fas fa-cog fa-spin fa-3x"></i><br>
+    Press<br> Here
+  </button>
+  <div class="dropdown-menu">
+   <ul class="   nav flex-column bg-dark ">
+  
+    <li class="nav-item dropdown-item  ">
+        
+    <a class="nav-link " data-toggle="tab" href="#projects"><i class="fa fa-list-ul"></i>Projects</a>
+  </li>
+ 
+    <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#addproject"><i class="fa fa-plus"></i>Add Project</a>
+       </li>
+</ul>
+  </div>
+</div>
+     <!-------------------------End Horizental Nav Bar------------------->
+
+           <div class="tab-content col-lg-9">
+     
+<!---------------Start of Projects         -->
+        <div class="tab-pane container fade" id="projects">
+    
+    
+    
+     <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Project</h3>
+     <form action="" name="request">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+      
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+
+    
+</ul> 
+</div>
+ 
+        
+        <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
+           <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
+         <br><br>
+</form>
+    
+      </div>
+     <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Project </h3>
+     <form action="" name="request">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+      
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+
+    
+</ul> 
+</div>
+ 
+        
+        <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
+           <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
+         <br><br>
+</form>
+    
+      </div>
+            
+            <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Project</h3>
+     <form action="" name="request">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+      
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+
+    
+</ul> 
+</div>
+ 
+        
+        <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
+           <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
+         <br><br>
+</form>
+    
+      </div>
+            
+               </div>
+               
+<!--    End Projects-->
+            
+               
+<!-------------------Project  Form ------------>
+  <div class="addprojectform tab-pane container fade" id="addproject">
+    <div class="addproject">
+        <form action="" name="addproject">
+  <div class="form-group"> 
+    <label class="title" for="firstname">Project Name:</label>
+    <input type="text" class=" form-control" id="projectname" required>
+  </div>
+    <li class="list-group-item  ">  <label for="projectdescription" class="title">Description:</label><textarea class="TA form-control rounded-0"  rows="3"></textarea>
+    <div class="form-group">
+    <div>
+        <label class="title" for="date">Date:</label>
+    <input type="date" class="form-control" id="date" placeholder="">
+  </div>
+  <div class="form-group">
+    <label class="title" for="price">Price:</label>
+    <input type="text" class="form-control" id="price">
+  </div>
+ 
+  <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
+
+         </div>
+
+</form>
+        </div>
+        
+        </div>
+<!------------End of Add Project form     -->
+         
+         
+         
+         </div>
+          </div>
+         
+         
+         
+         
+         
+         
+         <!-- Footer -->
+<footer class="footer page-footer font-small cyan darken-3">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row">
+
+        <!-- Grid column -->
+       <div class="col-md-12 py-5">
+          <center> <div class="mb-5 flex-center">
+
+            <!-- Facebook -->
+            <a class="fb-ic footericons" href="#">
+              <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic footericons" href="#" >
+              <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic footericons" href="#">
+              <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic footericons" href="#">
+              <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic footericons" href="#">
+              <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+            </a>
+            <!--Pinterest-->
+            <a class="pin-ic footericons" href="#">
+              <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+            </a>
+          </div></center>
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+     
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+    </body>
+    
+</html>
+    

@@ -1,0 +1,424 @@
+<!DOCTYPE HTML>
+<html>
+
+    <title>E-Commerce</title>
+  <meta charset="utf-8">
+   <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon" sizes="20x20" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+   
+  <link rel="stylesheet" href="CSS/Style.css">
+<script type="text/javascript" src="JS/Script.css"></script>
+
+
+
+     <body>
+
+  
+<!--------------------------Start Vertical Nav Bar------------------->
+       
+        <div class="navcontainer container-flued">
+      <nav class=" navbar navbar-expand-sm  fixed-top ">
+           <!--      Logo in nav bar-->
+       <a class="navbar-brand text-white" href="#"> <img   src="Images/logo.png"  alt="logo"  style="width:80px; height:40px;" ></a>
+  
+           <!--            Nav bar Items-->
+        <ul class="nav navbar-nav  ml-auto text-white">
+          <li class="nav-item "><a class="nav-link  " href="#"><i class=" fa fa-home fa-2x"></i>Home</a></li>
+            <li class="nav-item"><a class="nav-link " href="#"><i class=" fa fa-user-tie fa-2x"></i> Profile</a></li>
+          
+          <li class="nav-item"><a class="nav-link " href="#"><i class="fa fa-sign-in-alt fa-2x"></i>Login</a></li>
+          </ul>
+        </nav>
+          
+       
+    </div>
+    
+<!--  End Vertical Nav bar  -->
+    
+              
+    
+       
+    <div class="infocontainer row"> 
+        
+        
+     <!--------------------------Start Horizintal Nav ------------------->      
+    <div class="dropdown dropright col-lg-3">
+  <button type="button" class="showinfo btn btn-dark" data-toggle="dropdown"><i class="fas fa-cog fa-spin fa-2x"></i><br>
+    Press<br> Here
+  </button>
+  <div class="dropdown-menu">
+   <ul class="   nav flex-column bg-dark ">
+  <li class="nav-item dropdown-item">
+    <a class="nav-link active" data-toggle="tab" href="#personalInfo"><i class="fa fa-user"></i>Prsonal Info.</a>
+  </li>
+ 
+  <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#users"><i class="fa fa-users"></i>Users</a>
+  </li>
+
+    <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#projects"><i class="fa fa-list-ul"></i>Projects</a>
+  </li>
+    
+    
+</ul>
+  </div>
+</div>
+     <!-------------------------End Horizental Nav Bar------------------->
+
+
+   
+        
+    <div class="tab-content col-lg-9">
+    
+    
+    
+    
+ <!--------------------------Start Personal Information ---------- -->
+  <div class="personalinfo tab-pane container-flued active" id="personalInfo">
+      
+      <div>
+    <div>      
+     <center> <img   src="Images/bg1.jpg" class="imgprofile rounded-circle" alt="Profile Picture"  ></center><br>
+      <form name="personalinfo" id="personalinfo">
+        <h3 class="text-center">Mohamed Yehia</h3> <hr>
+      <h6 class="text-center">Admin</h6>
+        <h6 class="text-center">010000000000</h6>
+        <h6 class="text-center">mohamed@example.com</h6>
+        </form>
+      </div>
+         </div>
+      </div> 
+    
+     <!--End of Personal Info-->
+    
+    
+    
+    
+    
+
+      
+ 
+          
+      
+      
+      
+      
+
+     <!--------------------------- Start of  Users   -------------------------->
+    
+    <div class=" tab-pane container fade navbar-light" id="users">
+     <button type="button" class="addbutton btn " data-toggle="modal" data-target="#addUserModal"><i class="fa fa-plus"></i>
+  ADD 
+</button>
+
+<!-- The Modal -->
+<div class="modal" id="addUserModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"><i class="fa fa-plus"></i> Add User</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <form action="" name="adduser">
+  <div class="form-group"> 
+    <label for="firstname">First Name:</label>
+    <input type="text" class="form-control" id="firstname" required>
+  </div>
+    <div class="form-group"> 
+    <label for="lastname">Last Name:</label>
+    <input type="text" class="form-control" id="lastname" required>
+  </div>
+    <div class="form-group"> 
+    <label for="phone">Phone:</label>
+    <input type="text" class="form-control" id="phone" required>
+  </div>
+    <div class="form-group"> 
+    <label for="phone">Photo:</label>
+    <input type="file" class="form-control" id="phone" required>
+  </div>
+    
+  <div class="form-group"> 
+    <label for="email">Email addres:</label>
+    <input type="email" class="form-control" id="email" required>
+  </div>
+     <div class="form-group">
+<label for="jobtitle"  >Job Title:</label>
+  <select class="form-control" id="MT">
+      <option>Customer</option>
+      <option>Marketing Director</option>
+    <option>Marketing Team Leader</option>
+    <option>Marketing Trainee</option>
+    
+  </select>
+</div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="password">
+  </div>
+ 
+  <button type="submit" class="btn btn-danger btn-block">Submit</button>
+</form>
+      </div>
+
+     
+     
+    </div>
+  </div>
+</div>
+<!--End of Model     -->
+        <!-- Nav pills -->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="usersnavitem nav-link active " data-toggle="pill" href="#MDs">Marketing Directors</a>
+  </li>
+  <li class="nav-item">
+    <a class="usersnavitem nav-link" data-toggle="pill" href="#MTLs">Marketing Team Leaders</a>
+  </li>
+  <li class="nav-item">
+    <a class="usersnavitem nav-link" data-toggle="pill" href="#MTs">Marketing Trainee</a>
+  </li>
+  <li class="nav-item">
+    <a class="usersnavitem nav-link" data-toggle="pill" href="#Customers">Customers</a>
+  </li>
+   
+</ul> <br><br>
+
+<!-- Tab panes -->
+        
+        <!--        MDS-->
+<div class="tab-content">
+  <div class="tab-pane container active" id="MDs">
+      <ul class="list-group">
+  <li class="list-group-item">Marketing Director<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+  <li class="list-group-item">Marketing Director<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+     <li class="list-group-item">Marketing Director<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+</ul> </div>
+    
+    
+    <!--        MTL-->  
+  <div class="tab-pane container fade" id="MTLs">
+     <ul class="list-group">
+  <li class="list-group-item">Marketing Team Leader<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+  <li class="list-group-item">Marketing Team Leader<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+     <li class="list-group-item">Marketing Team Leader<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+</ul> 
+  
+    </div>
+    
+    
+    <!--        MTs-->
+  <div class="tab-pane container fade" id="MTs">
+    <ul class="list-group">
+  <li class="list-group-item">Marketing Trainee<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+  <li class="list-group-item">Marketing Trainee<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+     <li class="list-group-item">Marketing Trainee<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+      </ul> 
+  
+    </div>
+    
+    <!--        Customers-->
+  <div class="tab-pane container fade" id="Customers">
+     <ul class="list-group">
+  <li class="list-group-item">Customer<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+  <li class="list-group-item">Customer<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+     <li class="list-group-item">Customer<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+</ul> 
+    
+    </div>
+</div>
+        
+        
+        
+        
+        </div>
+        <!--      End of Users-->
+   
+        
+    <!--------------------------- Start of  Current Projects   -------------------------->
+   
+  <div class="tab-pane container fade" id="projects">
+     <button type="button" class="fixedbutton  btn btn-danger  " data-toggle="modal" data-target="#addProjectModal"><i class="fa fa-plus"></i>Add</button> <br><br>
+        <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
+     <form action="" name="control">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+        
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+       <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Date</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label> Price</li>
+    
+    
+</ul> 
+</div>
+ 
+        
+          <button type="button" class="requestButton btn btn-success " data-toggle="modal" data-target="#editProjectModal"><i class="fa fa-edit"></i>Edit</button>        
+          <button type="submit" class="requestButton btn btn-danger"><i class="fa fa-trash-alt"></i>Delete</button>
+         <br><br>
+         
+<!-- The Modal -->
+<div class="modal" id="editProjectModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class=" modal-title"><i class="fa fa-edit"></i> Edit Project</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <form action="" name="adduser">
+  <div class="form-group"> 
+    <label class="title" for="firstname">Project Name:</label>
+    <input type="text" class=" form-control" id="projectname" required>
+  </div>
+    <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3">Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+    <div class="form-group">
+    <div>
+        <label class="title" for="date">Date:</label>
+    <input type="date" class="form-control" id="date" placeholder="">
+  </div>
+  <div class="form-group">
+    <label class="title" for="price">Price:</label>
+    <input type="text" class="form-control" id="price">
+  </div>
+ 
+  <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
+
+      
+
+     
+     
+    </div>
+ </form>
+    
+      </div>
+    
+    
+    
+    
+    </div>
+     </div>
+         </div>
+
+<!--End of Model     -->
+        
+        
+                
+<!-- The Modal -->
+<div class="modal" id="addProjectModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class=" modal-title"><i class="fa fa-plus"></i> Add Project</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <form action="" name="adduser">
+  <div class="form-group"> 
+    <label class="title" for="firstname">Project Name:</label>
+    <input type="text" class=" form-control" id="projectname" required>
+  </div>
+    <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3"></textarea>
+    <div class="form-group">
+    <div>
+        <label class="title" for="date">Date:</label>
+    <input type="date" class="form-control" id="date" placeholder="">
+  </div>
+  <div class="form-group">
+    <label class="title" for="price">Price:</label>
+    <input type="text" class="form-control" id="price">
+  </div>
+ 
+  <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
+
+      
+
+     
+     
+    </div>
+ 
+
+<!--End of Model     -->
+</form>
+    
+      </div>
+    
+    
+    
+    
+    </div>
+     </div>
+         </div>
+            </form>
+      </div>
+        </div>
+        
+<!-- End of Projects    -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    
+    
+ 
+        
+        
+        </div>
+    
+   
+    
+
+     
+     </div>
+   
+    </body>
+
+</html>

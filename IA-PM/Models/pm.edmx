@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="pm.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="hiring">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="requestid" Type="int" Nullable="false" />
+          <Property Name="projectid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="progress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="descreption" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="date" Type="date" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="price" Type="float" />
+          <Property Name="customerid" Type="int" Nullable="false" />
+          <Property Name="progressid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="projrequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="projectid" Type="int" Nullable="false" />
+          <Property Name="progressid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Lname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="job_desc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="mobile" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="photo" Type="image" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="usertype" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__hiring__projecti__267ABA7A">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="hiring" Type="Self.hiring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hiring">
+              <PropertyRef Name="projectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hiring__requesti__276EDEB3">
+          <End Role="request" Type="Self.request" Multiplicity="1" />
+          <End Role="hiring" Type="Self.hiring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="request">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hiring">
+              <PropertyRef Name="requestid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hiring__userid__25869641">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="hiring" Type="Self.hiring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hiring">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projects__progre__1ED998B2">
+          <End Role="progress" Type="Self.progress" Multiplicity="1" />
+          <End Role="projects" Type="Self.projects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="progress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projects">
+              <PropertyRef Name="progressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projreque__progr__22AA2996">
+          <End Role="progress" Type="Self.progress" Multiplicity="1" />
+          <End Role="projrequest" Type="Self.projrequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="progress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projrequest">
+              <PropertyRef Name="progressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projreque__proje__21B6055D">
+          <End Role="projects" Type="Self.projects" Multiplicity="1" />
+          <End Role="projrequest" Type="Self.projrequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projrequest">
+              <PropertyRef Name="projectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__user__usertype__182C9B23">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="usertype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="pmStoreContainer">
+          <EntitySet Name="hiring" EntityType="Self.hiring" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="progress" EntityType="Self.progress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projects" EntityType="Self.projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="projrequest" EntityType="Self.projrequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="request" EntityType="Self.request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usertype" EntityType="Self.usertype" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__hiring__projecti__267ABA7A" Association="Self.FK__hiring__projecti__267ABA7A">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="hiring" EntitySet="hiring" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hiring__requesti__276EDEB3" Association="Self.FK__hiring__requesti__276EDEB3">
+            <End Role="request" EntitySet="request" />
+            <End Role="hiring" EntitySet="hiring" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hiring__userid__25869641" Association="Self.FK__hiring__userid__25869641">
+            <End Role="user" EntitySet="user" />
+            <End Role="hiring" EntitySet="hiring" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projects__progre__1ED998B2" Association="Self.FK__projects__progre__1ED998B2">
+            <End Role="progress" EntitySet="progress" />
+            <End Role="projects" EntitySet="projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projreque__progr__22AA2996" Association="Self.FK__projreque__progr__22AA2996">
+            <End Role="progress" EntitySet="progress" />
+            <End Role="projrequest" EntitySet="projrequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projreque__proje__21B6055D" Association="Self.FK__projreque__proje__21B6055D">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="projrequest" EntitySet="projrequest" />
+          </AssociationSet>
+          <AssociationSet Name="FK__user__usertype__182C9B23" Association="Self.FK__user__usertype__182C9B23">
+            <End Role="usertype" EntitySet="usertype" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pm" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="hiring">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="requestid" Type="Int32" Nullable="false" />
+          <Property Name="projectid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="project" Relationship="Self.FK__hiring__projecti__267ABA7A" FromRole="hiring" ToRole="projects" />
+          <NavigationProperty Name="request" Relationship="Self.FK__hiring__requesti__276EDEB3" FromRole="hiring" ToRole="request" />
+          <NavigationProperty Name="user" Relationship="Self.FK__hiring__userid__25869641" FromRole="hiring" ToRole="user" />
+        </EntityType>
+        <EntityType Name="progress">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="projects" Relationship="Self.FK__projects__progre__1ED998B2" FromRole="progress" ToRole="projects" />
+          <NavigationProperty Name="projrequests" Relationship="Self.FK__projreque__progr__22AA2996" FromRole="progress" ToRole="projrequest" />
+        </EntityType>
+        <EntityType Name="project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="descreption" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="price" Type="Double" />
+          <Property Name="customerid" Type="Int32" Nullable="false" />
+          <Property Name="progressid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="hirings" Relationship="Self.FK__hiring__projecti__267ABA7A" FromRole="projects" ToRole="hiring" />
+          <NavigationProperty Name="progress" Relationship="Self.FK__projects__progre__1ED998B2" FromRole="projects" ToRole="progress" />
+          <NavigationProperty Name="projrequests" Relationship="Self.FK__projreque__proje__21B6055D" FromRole="projects" ToRole="projrequest" />
+        </EntityType>
+        <EntityType Name="projrequest">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="projectid" Type="Int32" Nullable="false" />
+          <Property Name="progressid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="progress" Relationship="Self.FK__projreque__progr__22AA2996" FromRole="projrequest" ToRole="progress" />
+          <NavigationProperty Name="project" Relationship="Self.FK__projreque__proje__21B6055D" FromRole="projrequest" ToRole="projects" />
+        </EntityType>
+        <EntityType Name="request">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="hirings" Relationship="Self.FK__hiring__requesti__276EDEB3" FromRole="request" ToRole="hiring" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="job_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usertype" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="hirings" Relationship="Self.FK__hiring__userid__25869641" FromRole="user" ToRole="hiring" />
+          <NavigationProperty Name="usertype1" Relationship="Self.FK__user__usertype__182C9B23" FromRole="user" ToRole="usertype" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="users" Relationship="Self.FK__user__usertype__182C9B23" FromRole="usertype" ToRole="user" />
+        </EntityType>
+        <Association Name="FK__hiring__projecti__267ABA7A">
+          <End Role="projects" Type="Self.project" Multiplicity="1" />
+          <End Role="hiring" Type="Self.hiring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hiring">
+              <PropertyRef Name="projectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hiring__requesti__276EDEB3">
+          <End Role="request" Type="Self.request" Multiplicity="1" />
+          <End Role="hiring" Type="Self.hiring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="request">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hiring">
+              <PropertyRef Name="requestid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hiring__userid__25869641">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="hiring" Type="Self.hiring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="hiring">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projects__progre__1ED998B2">
+          <End Role="progress" Type="Self.progress" Multiplicity="1" />
+          <End Role="projects" Type="Self.project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="progress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projects">
+              <PropertyRef Name="progressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projreque__progr__22AA2996">
+          <End Role="progress" Type="Self.progress" Multiplicity="1" />
+          <End Role="projrequest" Type="Self.projrequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="progress">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projrequest">
+              <PropertyRef Name="progressid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__projreque__proje__21B6055D">
+          <End Role="projects" Type="Self.project" Multiplicity="1" />
+          <End Role="projrequest" Type="Self.projrequest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="projrequest">
+              <PropertyRef Name="projectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__user__usertype__182C9B23">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="usertype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IAEn" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="hirings" EntityType="Self.hiring" />
+          <EntitySet Name="progresses" EntityType="Self.progress" />
+          <EntitySet Name="projects" EntityType="Self.project" />
+          <EntitySet Name="projrequests" EntityType="Self.projrequest" />
+          <EntitySet Name="requests" EntityType="Self.request" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="usertypes" EntityType="Self.usertype" />
+          <AssociationSet Name="FK__hiring__projecti__267ABA7A" Association="Self.FK__hiring__projecti__267ABA7A">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="hiring" EntitySet="hirings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hiring__requesti__276EDEB3" Association="Self.FK__hiring__requesti__276EDEB3">
+            <End Role="request" EntitySet="requests" />
+            <End Role="hiring" EntitySet="hirings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hiring__userid__25869641" Association="Self.FK__hiring__userid__25869641">
+            <End Role="user" EntitySet="users" />
+            <End Role="hiring" EntitySet="hirings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projects__progre__1ED998B2" Association="Self.FK__projects__progre__1ED998B2">
+            <End Role="progress" EntitySet="progresses" />
+            <End Role="projects" EntitySet="projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projreque__progr__22AA2996" Association="Self.FK__projreque__progr__22AA2996">
+            <End Role="progress" EntitySet="progresses" />
+            <End Role="projrequest" EntitySet="projrequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__projreque__proje__21B6055D" Association="Self.FK__projreque__proje__21B6055D">
+            <End Role="projects" EntitySet="projects" />
+            <End Role="projrequest" EntitySet="projrequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__user__usertype__182C9B23" Association="Self.FK__user__usertype__182C9B23">
+            <End Role="usertype" EntitySet="usertypes" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="pmStoreContainer" CdmEntityContainer="IAEn">
+          <EntitySetMapping Name="hirings">
+            <EntityTypeMapping TypeName="pm.hiring">
+              <MappingFragment StoreEntitySet="hiring">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="requestid" ColumnName="requestid" />
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="progresses">
+            <EntityTypeMapping TypeName="pm.progress">
+              <MappingFragment StoreEntitySet="progress">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="projects">
+            <EntityTypeMapping TypeName="pm.project">
+              <MappingFragment StoreEntitySet="projects">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="descreption" ColumnName="descreption" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="progressid" ColumnName="progressid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="projrequests">
+            <EntityTypeMapping TypeName="pm.projrequest">
+              <MappingFragment StoreEntitySet="projrequest">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="projectid" ColumnName="projectid" />
+                <ScalarProperty Name="progressid" ColumnName="progressid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requests">
+            <EntityTypeMapping TypeName="pm.request">
+              <MappingFragment StoreEntitySet="request">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="pm.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fname" ColumnName="Fname" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="job_desc" ColumnName="job_desc" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="usertype" ColumnName="usertype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertypes">
+            <EntityTypeMapping TypeName="pm.usertype">
+              <MappingFragment StoreEntitySet="usertype">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

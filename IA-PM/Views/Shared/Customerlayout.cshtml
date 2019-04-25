@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title </title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="~/Images/favicon.png" type="image/x-icon" sizes="20x20" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+
+    <!-- jQuery library -->
+    @Scripts.Render("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+
+    <!-- Popper JS -->
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+
+    <!-- Latest compiled JavaScript -->
+    @Scripts.Render("https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    @Styles.Render("https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+
+    @Styles.Render("~/Content/style.css")
+    @Scripts.Render("~/scripts/Script.css")
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Projects', 'Hours per Day'],
+  ['Five star', 8],
+  ['Year Experience', 2],
+  ['Age', 2],
+  ['HI', 2],
+  ['HI', 2],
+  ['Hello', 8]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Experirnce', 'width':800, 'height':600};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+    </script>
+
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Dinosaur', 'Length'],
+          ['Acrocanthosaurus (top-spined lizard)', 12.2],
+          ['Albertosaurus (Alberta lizard)', 9.1],
+          ['Allosaurus (other lizard)', 12.2],
+          ['Apatosaurus (deceptive lizard)', 22.9],
+          ['Archaeopteryx (ancient wing)', 0.9],
+          ['Argentinosaurus (Argentina lizard)', 36.6],
+          ['Baryonyx (heavy claws)', 9.1],
+          ['Brachiosaurus (arm lizard)', 30.5],
+          ['Ceratosaurus (horned lizard)', 6.1],
+          ['Coelophysis (hollow form)', 2.7],
+          ['Compsognathus (elegant jaw)', 0.9],
+          ['Deinonychus (terrible claw)', 2.7],
+          ['Diplodocus (double beam)', 27.1],
+          ['Dromicelomimus (emu mimic)', 3.4],
+          ['Gallimimus (fowl mimic)', 5.5],
+          ['Mamenchisaurus (Mamenchi lizard)', 21.0],
+          ['Megalosaurus (big lizard)', 7.9],
+          ['Microvenator (small hunter)', 1.2],
+          ['Ornithomimus (bird mimic)', 4.6],
+          ['Oviraptor (egg robber)', 1.5],
+          ['Plateosaurus (flat lizard)', 7.9],
+          ['Sauronithoides (narrow-clawed lizard)', 2.0],
+          ['Seismosaurus (tremor lizard)', 45.7],
+          ['Spinosaurus (spiny lizard)', 12.2],
+          ['Supersaurus (super lizard)', 30.5],
+          ['Tyrannosaurus (tyrant lizard)', 15.2],
+          ['Ultrasaurus (ultra lizard)', 30.5],
+          ['Velociraptor (swift robber)', 1.8]]);
+
+        var options = {
+          title: 'Lengths of dinosaurs, in meters',
+          legend: { position: 'none' },
+        };
+           var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+</head>
+<body>
+    <!--------------------------Start Vertical Nav Bar------------------->
+
+    <div class="navcontainer container-flued">
+        <nav class=" navbar navbar-expand-sm  fixed-top ">
+            <!--      Logo in nav bar-->
+            <a class="navbar-brand text-white" href="#"> <img src="~/Images/logo.png" alt="logo" style="width:80px; height:40px;"></a>
+
+            <!--            Nav bar Items-->
+            <ul class="nav navbar-nav  ml-auto text-white">
+                <li class="nav-item "><a class="nav-link  " href="#"><i class=" fa fa-home fa-2x"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link " href="#"><i class=" fa fa-user-tie fa-2x"></i> Profile</a></li>
+
+                <li class="nav-item"><a class="nav-link " href="#"><i class="fa fa-sign-in-alt fa-2x"></i>Login</a></li>
+            </ul>
+        </nav>
+
+
+    </div>
+
+    <!--  End Vertical Nav bar  -->
+
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

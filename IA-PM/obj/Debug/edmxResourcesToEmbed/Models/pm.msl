@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="pmStoreContainer" CdmEntityContainer="IAEn">
+    <EntitySetMapping Name="hirings">
+      <EntityTypeMapping TypeName="pm.hiring">
+        <MappingFragment StoreEntitySet="hiring">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="requestid" ColumnName="requestid" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="progresses">
+      <EntityTypeMapping TypeName="pm.progress">
+        <MappingFragment StoreEntitySet="progress">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projects">
+      <EntityTypeMapping TypeName="pm.project">
+        <MappingFragment StoreEntitySet="projects">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="descreption" ColumnName="descreption" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="progressid" ColumnName="progressid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="projrequests">
+      <EntityTypeMapping TypeName="pm.projrequest">
+        <MappingFragment StoreEntitySet="projrequest">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="projectid" ColumnName="projectid" />
+          <ScalarProperty Name="progressid" ColumnName="progressid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="requests">
+      <EntityTypeMapping TypeName="pm.request">
+        <MappingFragment StoreEntitySet="request">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="pm.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Fname" ColumnName="Fname" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="job_desc" ColumnName="job_desc" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="usertype" ColumnName="usertype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usertypes">
+      <EntityTypeMapping TypeName="pm.usertype">
+        <MappingFragment StoreEntitySet="usertype">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

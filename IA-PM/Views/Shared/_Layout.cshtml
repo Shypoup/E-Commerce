@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title </title>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="~/Images/favicon.png" type="image/x-icon" sizes="20x20" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css")
+
+    <!-- jQuery library -->
+    @Scripts.Render("https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+
+    <!-- Popper JS -->
+    @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+
+    <!-- Latest compiled JavaScript -->
+    @Scripts.Render("https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    @Styles.Render("https://use.fontawesome.com/releases/v5.8.1/css/all.css")
+
+    @Styles.Render("~/Content/style.css")
+    @Scripts.Render("~/scripts/Script.css")
+
+
+</head>
+<body>
+
+    <!--------------------------Start Vertical Nav Bar------------------->
+
+    <div class="navcontainer container-flued">
+        <nav class=" navbar navbar-expand-sm  fixed-top ">
+            <!--      Logo in nav bar-->
+            <a class="navbar-brand text-white" href="#"> <img src="~/Images/logo.png" alt="logo" style="width:80px; height:40px;"></a>
+
+            <!--            Nav bar Items-->
+            <ul class="nav navbar-nav  ml-auto text-white">
+                <li class="nav-item "><a class="nav-link  " href="#"><i class=" fa fa-home fa-2x"></i>Home</a></li>
+                <li class="nav-item"><a class="nav-link " href="#"><i class=" fa fa-user-tie fa-2x"></i> Profile</a></li>
+
+                <li class="nav-item"><a class="nav-link " href="#" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in-alt fa-2x"></i>Login</a></li>
+
+
+            </ul>
+        </nav>
+
+
+    </div><br><br><br>
+
+    <!--  End Vertical Nav bar  -->
+                  <div >
+                      @RenderBody()
+                      <!-- Footer -->
+                      <footer class="footer page-footer font-small cyan darken-3">
+
+                          <!-- Footer Elements -->
+                          <div class="container">
+
+                              <!-- Grid row-->
+                              <div class="row">
+
+                                  <!-- Grid column -->
+                                  <div class="col-md-12 py-5">
+                                      <center>
+                                          <div class="mb-5 flex-center">
+
+                                              <!-- Facebook -->
+                                              <a class="fb-ic footericons" href="#">
+                                                  <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                                              </a>
+                                              <!-- Twitter -->
+                                              <a class="tw-ic footericons" href="#">
+                                                  <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                                              </a>
+                                              <!-- Google +-->
+                                              <a class="gplus-ic footericons" href="#">
+                                                  <i class="fab fa-google-plus-g fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                                              </a>
+                                              <!--Linkedin -->
+                                              <a class="li-ic footericons" href="#">
+                                                  <i class="fab fa-linkedin-in fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                                              </a>
+                                              <!--Instagram-->
+                                              <a class="ins-ic footericons" href="#">
+                                                  <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                                              </a>
+                                              <!--Pinterest-->
+                                              <a class="pin-ic footericons" href="#">
+                                                  <i class="fab fa-pinterest fa-lg white-text fa-2x"> </i>
+                                              </a>
+                                          </div>
+                                      </center>
+                                  </div>
+                                  <!-- Grid column -->
+
+                              </div>
+                              <!-- Grid row-->
+
+                          </div>
+                          <!-- Footer Elements -->
+                          <!-- Copyright -->
+                          <div class="footer-copyright text-center py-3">
+                              © 2019 Copyright:
+
+                          </div>
+                          <!-- Copyright -->
+
+                  </div>
+</body>
+</html>

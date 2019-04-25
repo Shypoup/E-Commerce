@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+<html>
+
+    <title>E-Commerce</title>
+  <meta charset="utf-8">
+   <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon" sizes="20x20" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+   
+  <link rel="stylesheet" href="CSS/Style.css">
+<script type="text/javascript" src="JS/Script.css"></script>
+<body>
+    
+   
+
+  
+<!--------------------------Start Vertical Nav Bar------------------->
+       
+        <div class="navcontainer container-flued">
+      <nav class=" navbar navbar-expand-sm  fixed-top ">
+           <!--      Logo in nav bar-->
+       <a class="navbar-brand text-white" href="#"> <img   src="Images/logo.png"  alt="logo"  style="width:80px; height:40px;" ></a>
+  
+           <!--            Nav bar Items-->
+        <ul class="nav navbar-nav  ml-auto text-white">
+          <li class="nav-item "><a class="nav-link  " href="#"><i class=" fa fa-home fa-2x"></i>Home</a></li>
+            <li class="nav-item"><a class="nav-link " href="#"><i class=" fa fa-user-tie fa-2x"></i> Profile</a></li>
+          
+          <li class="nav-item"><a class="nav-link " href="#"><i class="fa fa-sign-in-alt fa-2x"></i>Login</a></li>
+          </ul>
+        </nav>
+          
+       
+    </div>
+    
+<!--  End Vertical Nav bar  -->
+    
+              
+    
+       
+    <div class="infocontainer row"> 
+        
+        
+     <!--------------------------Start Horizintal Nav ------------------->      
+    <div class="dropdown dropright col-lg-3">
+  <button type="button" class="showinfo btn btn-dark" data-toggle="dropdown"><i class="fas fa-cog fa-spin fa-2x"></i><br>
+    Press<br> Here
+  </button>
+  <div class="dropdown-menu">
+   <ul class="   nav flex-column bg-dark ">
+  <li class="nav-item dropdown-item">
+    <a class="nav-link active" data-toggle="tab" href="#personalInfo"><i class="fa fa-user"></i>Prsonal Info.</a>
+  </li>
+  
+  <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#sendRequest"><i class="fa fa-reply"></i>Assign Project</a>
+  </li>
+    <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#current"><i class="fa fa-list-ul"></i>Current Projects</a>
+  </li>
+    <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#delivered"><i class="fa fa-calendar-check"></i>Delivered Projects</a>
+  </li>
+    <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#addproject"><i class="fa fa-plus"></i>Add Project</a>
+  
+</ul>
+  </div>
+</div>
+     <!-------------------------End Horizental Nav Bar------------------->
+
+
+   
+        
+    <div class="tab-content col-lg-9">
+    
+    
+    
+    
+ <!--------------------------Start Personal Information ---------- -->
+  <div class="personalinfo tab-pane container-flued active" id="personalInfo">
+      
+      <div>
+    <div>      
+     <center> <img   src="Images/bg1.jpg" class="imgprofile rounded-circle" alt="Profile Picture"  ></center><br>
+      <form name="personalinfo" id="personalinfo">
+        <h3 class="text-center">Mohamed Yehia</h3> <hr>
+      <h6 class="text-center">Customer</h6>
+        <h6 class="text-center">010000000000</h6>
+        <h6 class="text-center">mohamed@example.com</h6>
+        </form>
+      </div>
+         </div>
+      </div> 
+    
+     <!--End of Personal Info-->
+    
+    
+
+      
+      
+      
+
+  
+            
+    
+<!------------------------Send Request ----------------------------------->
+    
+  <div class="tab-pane container fade" id="sendRequest">
+     
+       
+       <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-reply"></i>Send Request</h3>
+     <form action="" name="sendrequest">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+     
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+
+  <div class="form-group">
+      <i class="title fa fa-street-view"></i><label for="projectML " class="title">Marketing Directors:</label>
+  <select class="form-control" id="ML">
+    <option>MD1</option>
+    <option>MD2</option>
+    <option>MD3</option>
+    <option>MD4</option>
+  </select>
+</div>
+        
+</ul> 
+</div>
+ 
+        
+        <button type="submit" class="requestButton btn btn-success"><i class="fa fa-share-square">Send</i></button>
+          <br><br>
+</form>
+      </div>
+   
+     </div>
+    
+    
+<!--End of Send Requests    -->
+    
+  
+    <!--------------------------- Start of  Current Projects   -------------------------->
+   
+  <div class="tab-pane container fade" id="current">
+      <button type="button" class="fixedbutton  btn btn-danger  " data-toggle="modal" data-target="#addProjectModal"><i class="fa fa-plus"></i>Add</button> <br><br>
+        <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
+     <form action="" name="control">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+      
+     <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Date</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label> Price</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-user-tie"></i>Marketing Leader:</label> Name</li>
+
+     <ul class="list-group">
+         <label for="projectMT" class="title"><i class=" fa fa-users"></i>Marketing Trainee:</label>
+         <li class="list-group-item  ">MT1</li>
+         <li class="list-group-item  ">MT2</li>
+         <li class="list-group-item  ">MT3</li>
+         <li class="list-group-item  ">MT4</li>
+    
+      </ul>
+</ul> 
+</div>
+ 
+        
+            <button type="button" class="requestButton btn btn-success " data-toggle="modal" data-target="#editProjectModal"><i class="fa fa-edit"></i>Edit</button>
+           <button type="button" class="requestButton btn btn-danger"><i class="fa fa-trash-alt"></i>Remove Project</button>
+         <br><br>
+</form>
+            
+<!-- The Modal -->
+<div class="modal" id="editProjectModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class=" modal-title"><i class="fa fa-edit"></i> Edit Project</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <form action="" name="editproject">
+  <div class="form-group"> 
+    <label class="title" for="firstname">Project Name:</label>
+    <input type="text" class=" form-control" id="projectname" required>
+  </div>
+    <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3">Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+    <div class="form-group">
+    <div>
+        <label class="title" for="date">Date:</label>
+    <input type="date" class="form-control" id="date" placeholder="">
+  </div>
+  <div class="form-group">
+    <label class="title" for="price">Price:</label>
+    <input type="text" class="form-control" id="price">
+  </div>
+ 
+  <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
+
+      
+
+     
+     
+    </div>
+           </li></form></div></div></div>
+
+<!--End of Model     -->
+      </div>
+    
+    
+    
+      </div>
+    </div>
+    
+           
+                
+<!-- The Modal -->
+<div class="modal" id="addProjectModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class=" modal-title"><i class="fa fa-plus"></i> Add Project</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+       <form action="" name="adduser">
+  <div class="form-group"> 
+    <label class="title" for="firstname">Project Name:</label>
+    <input type="text" class=" form-control" id="projectname" required>
+  </div>
+    <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3"></textarea>
+    <div class="form-group">
+    <div>
+        <label class="title" for="date">Date:</label>
+    <input type="date" class="form-control" id="date" placeholder="">
+  </div>
+  <div class="form-group">
+    <label class="title" for="price">Price:</label>
+    <input type="text" class="form-control" id="price">
+  </div>
+ 
+  <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
+
+      
+
+     
+     
+    </div>
+ 
+
+<!--End of Model     -->
+</form>
+    
+      </div>
+    
+    
+    
+    
+    </div>
+     </div>
+         </div>
+           
+<!-- End of Current Project    -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--------------------------- Start of  Delivered Projects   -------------------------->
+  <div class="tab-pane container fade" id="delivered">
+    
+         <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
+     <form action="">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+      
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+      
+     <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Name</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label> Name</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-user-tie"></i>Marketing Leader:</label> Name</li>
+
+     <ul class="list-group">
+         <label for="projectMT" class="title"><i class=" fa fa-users"></i>Marketing Trainee:</label>
+         <li class="list-group-item  ">MT1</li>
+         <li class="list-group-item  ">MT2</li>
+         <li class="list-group-item  ">MT3</li>
+         <li class="list-group-item  ">MT4</li>
+    
+      </ul>
+</ul> 
+</div>
+ 
+        
+    
+</form>
+    
+      </div>
+      
+    
+    
+    </div>
+    
+    
+    
+<!--------------------------- Start of  Control   -------------------------->
+    
+  <div class="tab-pane container fade" id="addproject">
+    <div class="addproject">
+        <form action="" name="adduser">
+  <div class="form-group"> 
+    <label class="title" for="firstname">Project Name:</label>
+    <input type="text" class=" form-control" id="projectname" required>
+  </div>
+    <li class="list-group-item  ">  <label for="projectdescription" class="title">Description:</label><textarea class="TA form-control rounded-0"  rows="3"></textarea>
+    <div class="form-group">
+    <div>
+        <label class="title" for="date">Date:</label>
+    <input type="date" class="form-control" id="date" placeholder="">
+  </div>
+  <div class="form-group">
+    <label class="title" for="price">Price:</label>
+    <input type="text" class="form-control" id="price">
+  </div>
+ 
+  <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
+
+     
+     
+    </div>
+ 
+
+<!--End of Model     -->
+</form>
+      
+        </div>
+        
+   <!--End of Control   -->     
+        
+        
+        
+        
+        </div>
+    
+   
+    
+
+     
+     </div>
+   
+    </body>
+
+</html>

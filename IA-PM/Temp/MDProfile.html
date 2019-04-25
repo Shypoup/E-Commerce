@@ -1,0 +1,531 @@
+<!DOCTYPE HTML>
+<html>
+
+    <title>E-Commerce</title>
+  <meta charset="utf-8">
+   <link rel="shortcut icon" href="Images/favicon.png" type="image/x-icon" sizes="20x20" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+   
+  <link rel="stylesheet" href="CSS/Style.css">
+<script type="text/javascript" src="JS/Script.css"></script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Projects', 'Hours per Day'],
+  ['Five star', 8],
+  ['Year Experience', 2],
+  ['Age', 2],
+  ['HI', 2],
+  ['HI', 2],
+  ['Hello', 8]
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var options = {'title':'Experirnce', 'width':800, 'height':600};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  chart.draw(data, options);
+}
+</script>
+    
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Dinosaur', 'Length'],
+          ['Acrocanthosaurus (top-spined lizard)', 12.2],
+          ['Albertosaurus (Alberta lizard)', 9.1],
+          ['Allosaurus (other lizard)', 12.2],
+          ['Apatosaurus (deceptive lizard)', 22.9],
+          ['Archaeopteryx (ancient wing)', 0.9],
+          ['Argentinosaurus (Argentina lizard)', 36.6],
+          ['Baryonyx (heavy claws)', 9.1],
+          ['Brachiosaurus (arm lizard)', 30.5],
+          ['Ceratosaurus (horned lizard)', 6.1],
+          ['Coelophysis (hollow form)', 2.7],
+          ['Compsognathus (elegant jaw)', 0.9],
+          ['Deinonychus (terrible claw)', 2.7],
+          ['Diplodocus (double beam)', 27.1],
+          ['Dromicelomimus (emu mimic)', 3.4],
+          ['Gallimimus (fowl mimic)', 5.5],
+          ['Mamenchisaurus (Mamenchi lizard)', 21.0],
+          ['Megalosaurus (big lizard)', 7.9],
+          ['Microvenator (small hunter)', 1.2],
+          ['Ornithomimus (bird mimic)', 4.6],
+          ['Oviraptor (egg robber)', 1.5],
+          ['Plateosaurus (flat lizard)', 7.9],
+          ['Sauronithoides (narrow-clawed lizard)', 2.0],
+          ['Seismosaurus (tremor lizard)', 45.7],
+          ['Spinosaurus (spiny lizard)', 12.2],
+          ['Supersaurus (super lizard)', 30.5],
+          ['Tyrannosaurus (tyrant lizard)', 15.2],
+          ['Ultrasaurus (ultra lizard)', 30.5],
+          ['Velociraptor (swift robber)', 1.8]]);
+
+        var options = {
+          title: 'Lengths of dinosaurs, in meters',
+          legend: { position: 'none' },
+        };
+           var chart = new google.visualization.Histogram(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
+          <body>
+    
+   
+
+  
+<!--------------------------Start Vertical Nav Bar------------------->
+       
+        <div class="navcontainer container-flued">
+      <nav class=" navbar navbar-expand-sm  fixed-top ">
+           <!--      Logo in nav bar-->
+       <a class="navbar-brand text-white" href="#"> <img   src="Images/logo.png"  alt="logo"  style="width:80px; height:40px;" ></a>
+  
+           <!--            Nav bar Items-->
+        <ul class="nav navbar-nav  ml-auto text-white">
+          <li class="nav-item "><a class="nav-link  " href="#"><i class=" fa fa-home fa-2x"></i>Home</a></li>
+            <li class="nav-item"><a class="nav-link " href="#"><i class=" fa fa-user-tie fa-2x"></i> Profile</a></li>
+          
+          <li class="nav-item"><a class="nav-link " href="#"><i class="fa fa-sign-in-alt fa-2x"></i>Login</a></li>
+          </ul>
+        </nav>
+          
+       
+    </div>
+    
+<!--  End Vertical Nav bar  -->
+    
+              
+    
+       
+    <div class="infocontainer row"> 
+        
+        
+     <!--------------------------Start Horizintal Nav ------------------->      
+    <div class="dropdown dropright col-lg-3">
+  <button type="button" class="showinfo btn btn-dark" data-toggle="dropdown"><i class="fas fa-cog fa-spin fa-2x"></i><br>
+    Press<br> Here
+  </button>
+  <div class="dropdown-menu">
+   <ul class="   nav flex-column bg-dark ">
+  <li class="nav-item dropdown-item">
+    <a class="nav-link active" data-toggle="tab" href="#personalInfo"><i class="fa fa-user"></i>Prsonal Info.</a>
+  </li>
+  <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#statDiagram"><i class="fa fa-chart-pie"></i>Statistical Diagrams</a>
+  </li>
+  <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#requests"><i class="fa fa-bell"></i>Requests</a>
+  </li>
+  <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#sendRequest"><i class="fa fa-reply"></i>Send Request</a>
+  </li>
+    <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#current"><i class="fa fa-list-ul"></i>Current Projects</a>
+  </li>
+    <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#delivered"><i class="fa fa-calendar-check"></i>Delivered Projects</a>
+  </li>
+    <li class="nav-item dropdown-item">
+    <a class="nav-link" data-toggle="tab" href="#control"><i class="fa fa-cog"></i>Controls</a>
+  
+</ul>
+  </div>
+</div>
+     <!-------------------------End Horizental Nav Bar------------------->
+
+
+   
+        
+    <div class="tab-content col-lg-9">
+    
+    
+    
+    
+ <!--------------------------Start Personal Information ---------- -->
+  <div class="personalinfo tab-pane container-flued active" id="personalInfo">
+      
+      <div>
+    <div>      
+     <center> <img   src="Images/bg1.jpg" class="imgprofile rounded-circle" alt="Profile Picture"  ></center><br>
+      <form name="personalinfo" id="personalinfo">
+        <h3 class="text-center">Mohamed Yehia</h3> <hr>
+      <h6 class="text-center">Marketing Trainee</h6>
+        <h6 class="text-center">010000000000</h6>
+        <h6 class="text-center">mohamed@example.com</h6>
+        </form>
+      </div>
+         </div>
+      </div> 
+    
+     <!--End of Personal Info-->
+    
+    
+    
+    
+    
+
+      
+   <!--------------------------Start statDiagram ---------- -->   
+     
+  <div class="tab-pane container fade" id="statDiagram">
+    
+    
+      <div id="piechart"></div>
+       <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    
+    
+    
+    
+    
+    </div>
+      
+      
+      
+      
+      
+
+  
+    
+    
+    <div class="tab-pane container fade" id="requests">
+    
+    
+    
+     <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Request</h3>
+     <form action="" name="request">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+      
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+
+    
+</ul> 
+</div>
+ 
+        
+        <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
+           <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
+         <br><br>
+</form>
+    
+      </div>
+       <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Request</h3>
+     <form action="">
+  <div class="form-group">
+    <ul class="list-group">
+       <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+      
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+    
+</ul> 
+</div>
+ 
+        
+        <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
+           <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
+         <br><br>
+</form>
+    
+      </div>
+    
+    </div>
+    
+    
+    
+    
+<!------------------------Send Request ----------------------------------->
+    
+  <div class="tab-pane container fade" id="sendRequest">
+     
+       
+       <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-reply"></i>Send Request</h3>
+     <form action="" name="sendrequest">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+      
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+
+  <div class="form-group">
+      <i class="title fa fa-user-secret"></i><label for="projectML " class="title">Marketing Leader:</label>
+  <select class="form-control" id="ML">
+    <option>ML1</option>
+    <option>ML2</option>
+    <option>ML3</option>
+    <option>ML4</option>
+  </select>
+</div>
+        <div class="form-group">
+  <i class="title fa fa-users"></i><label for="projectMT" class="title">Marketing Trainee:</label>
+  <select class="form-control" id="MT">
+    <option>MT1</option>
+    <option>MT2</option>
+    <option>MT3</option>
+    <option>MT4</option>
+  </select>
+</div>
+</ul> 
+</div>
+ 
+        
+        <button type="submit" class="requestButton btn btn-success"><i class="fa fa-share-square">Send</i></button>
+          <br><br>
+</form>
+      </div>
+   
+     </div>
+    
+    
+<!--End of Send Requests    -->
+    
+  
+    <!--------------------------- Start of  Current Projects   -------------------------->
+   
+  <div class="tab-pane container fade" id="current">
+    
+        <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
+     <form action="" name="control">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+      
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+      
+     <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Date</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label> Price</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-user-tie"></i>Marketing Leader:</label> Name</li>
+
+     <ul class="list-group">
+         <label for="projectMT" class="title"><i class=" fa fa-users"></i>Marketing Trainee:</label>
+         <li class="list-group-item  ">MT1</li>
+         <li class="list-group-item  ">MT2</li>
+         <li class="list-group-item  ">MT3</li>
+         <li class="list-group-item  ">MT4</li>
+    
+      </ul>
+</ul> 
+</div>
+ 
+        
+       
+           <button type="button" class="requestButton btn btn-danger"><i class="fa fa-edit"></i>Edit</button>
+         <br><br>
+</form>
+    
+      </div>
+    
+    
+    
+    
+    </div>
+    
+    
+<!-- End of Current Project    -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--------------------------- Start of  Delivered Projects   -------------------------->
+  <div class="tab-pane container fade" id="delivered">
+    
+         <div class="requestcontrol">
+      <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
+     <form action="">
+  <div class="form-group">
+    <ul class="list-group">
+        <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
+        <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+      
+      <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0"  rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+      
+     <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Name</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label> Name</li>
+     <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-user-tie"></i>Marketing Leader:</label> Name</li>
+
+     <ul class="list-group">
+         <label for="projectMT" class="title"><i class=" fa fa-users"></i>Marketing Trainee:</label>
+         <li class="list-group-item  ">MT1</li>
+         <li class="list-group-item  ">MT2</li>
+         <li class="list-group-item  ">MT3</li>
+         <li class="list-group-item  ">MT4</li>
+    
+      </ul>
+</ul> 
+</div>
+ 
+        
+    
+</form>
+    
+      </div>
+      
+    
+    
+    </div>
+    
+    
+    
+<!--------------------------- Start of  Control   -------------------------->
+    
+  <div class="tab-pane container fade" id="control">
+    
+      
+      <div class="row">
+      <div class="projectcontrol col-lg-4">
+      <h2>Project Name</h2>
+     <form action="/action_page.php">
+  <div class="form-group">
+    <label for="date">Date:</label>
+    <input type="date" class="form-control" id="date" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="text" class="form-control" id="price">
+  </div>
+  <div class="form-group">
+  <label for="projectstatus">Status:</label>
+  <select class="form-control" id="sel1">
+    <option>In Progress</option>
+    <option>Deliverd</option>
+  </select>
+</div>
+ <ul class="list-group">
+  <li class="list-group-item">Member1<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+  <li class="list-group-item">Member1<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+     <li class="list-group-item">Member1<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+</ul> 
+        <br>
+       <center>  <button type="submit" class="btn btn-danger"><i class="fa fa-sign-out-alt">Leave Project</i></button></center>
+</form>
+      
+ 
+      </div>
+<div class="projectcontrol col-lg-4">
+      <h2>Project Name</h2>
+     <form action="">
+  <div class="form-group">
+    <label for="date">Date:</label>
+    <input type="date" class="form-control" id="date" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="text" class="form-control" id="price">
+  </div>
+  <div class="form-group">
+  <label for="projectstatus">Status:</label>
+  <select class="form-control" id="sel1">
+    <option>In Progress</option>
+    <option>Deliverd</option>
+  </select>
+</div>
+ <ul class="list-group">
+  <li class="list-group-item">Member1<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+  <li class="list-group-item">Member1<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+     <li class="list-group-item">Member1<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+</ul> 
+        <br>
+       <center>  <button type="submit" class="btn btn-danger"><i class="fa fa-sign-out-alt">Leave Project</i></button></center>
+</form>
+      
+ 
+      </div>
+      
+      <div class="projectcontrol col-lg-4">
+      <h2>Project Name</h2>
+     <form action="/action_page.php">
+  <div class="form-group">
+    <label for="date">Date:</label>
+    <input type="date" class="form-control" id="date" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="text" class="form-control" id="price">
+  </div>
+  <div class="form-group">
+  <label for="projectstatus">Status:</label>
+  <select class="form-control" id="sel1">
+    <option>In Progress</option>
+    <option>Deliverd</option>
+  </select>
+</div>
+ <ul class="list-group">
+  <li class="list-group-item">Member1<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+  <li class="list-group-item">Member1<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+     <li class="list-group-item">Member1<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+</ul> 
+        <br>
+       <center>  <button type="submit" class="btn btn-danger"><i class="fa fa-sign-out-alt">Leave Project</i></button></center>
+</form>
+      
+ 
+      </div>
+</div>
+    </div>
+    
+        
+   <!--End of Control   -->     
+        
+        
+        
+        
+        </div>
+    
+   
+    
+
+     
+     </div>
+   
+    </body>
+
+</html>
