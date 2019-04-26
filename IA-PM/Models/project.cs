@@ -25,10 +25,16 @@ namespace IA_PM.Models
         public string name { get; set; }
         public string descreption { get; set; }
         public Nullable<System.DateTime> date { get; set; }
-        public int status { get; set; }
         public Nullable<double> price { get; set; }
-        public int customerid { get; set; }
-        public int progressid { get; set; }
+        public Nullable<int> customerid { get; set; }
+        public Nullable<int> progressid { get; set; }
+        public Nullable<int> MDId { get; set; }
+        public Nullable<int> MTLId { get; set; }
+        public Nullable<int> MT1Id { get; set; }
+        public Nullable<int> MT2id { get; set; }
+        public Nullable<int> MT3id { get; set; }
+        public Nullable<int> MT4id { get; set; }
+        public Nullable<int> MT5id { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<hiring> hirings { get; set; }
