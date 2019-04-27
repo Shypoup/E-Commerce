@@ -140,35 +140,59 @@
             <div class="tab-content">
                 <div class="tab-pane container active" id="MDs">
                     <ul class="list-group">
-                        <li class="list-group-item">Marketing Director<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
-                        <li class="list-group-item">Marketing Director<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
-                        <li class="list-group-item">Marketing Director<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+
+                        @foreach (var item in Model.allusers)
+                        {
+                            if (item.job_desc.Equals("MD"))
+                            {
+                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+                            }
+                        }
+
+
+
                     </ul>
                 </div>
 
                 <!--        MTL-->
                 <div class="tab-pane container fade" id="MTLs">
                     <ul class="list-group">
-                        <li class="list-group-item">Marketing Team Leader<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
-                        <li class="list-group-item">Marketing Team Leader<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
-                        <li class="list-group-item">Marketing Team Leader<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+                        
+                        @foreach (var item in Model.allusers)
+                        {
+                            if (item.job_desc.Equals("MTL"))
+                            {
+                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+                            }
+                        }
+                        
+                        
+
                     </ul>
                 </div>
 
                 <!--        MTs-->
                 <div class="tab-pane container fade" id="MTs">
                     <ul class="list-group">
-                        <li class="list-group-item">Marketing Trainee<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
-                        <li class="list-group-item">Marketing Trainee<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
-                        <li class="list-group-item">Marketing Trainee<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+                    @foreach (var item in Model.allusers)
+                    {
+                        if (item.job_desc.Equals("MT"))
+                        {
+                            <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+                        }
+                    }
                     </ul>
                 </div>
                 <!--        Customers-->
                 <div class="tab-pane container fade" id="Customers">
                     <ul class="list-group">
-                        <li class="list-group-item">Customer<button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
-                        <li class="list-group-item">Customer<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
-                        <li class="list-group-item">Customer<button type="button" class="deleteMemberButton btn btn-danger"><i class="fa fa-trash-alt"></i></button></li>
+                    @foreach (var item in Model.allusers)
+                    {
+                        if (item.job_desc.Equals("customer"))
+                        {
+                            <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+                        }
+                    }
                     </ul>
                 </div>
             </div>
@@ -183,16 +207,23 @@
             <!--------------------------- Start of  Current Projects   -------------------------->
             <div class="tab-pane container fade" id="projects">
                 <button type="button" class="fixedbutton  btn btn-danger  " data-toggle="modal" data-target="#addProjectModal"><i class="fa fa-plus"></i>Add</button> <br><br>
+                
+            @foreach (var proj in Model.projects)
+            {
                 <div class="requestcontrol">
-                    <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
+                    <h3 class="text-danger"><i class="fa fa-bell"></i>  @Html.DisplayFor(modelItem => proj.name)</h3>
                     <form action="" name="control">
                         <div class="form-group">
+                           
                             <ul class="list-group">
-                                <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                                <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                                <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-                                <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Date</li>
-                                <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label> Price</li>
+
+
+
+                                <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> @Html.DisplayFor(modelItem => proj.name)</li>
+                                <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label>@Html.DisplayFor(modelItem => proj.customerid) </li>
+                                <li class="list-group-item  "> <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>@Html.DisplayFor(modelItem => proj.descreption)</textarea>
+                                <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> @Html.DisplayFor(modelItem => proj.date)</li>
+                                <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label> @Html.DisplayFor(modelItem => proj.price)</li>
 
                             </ul>
                         </div>
@@ -200,6 +231,7 @@
                         <button type="button" class="requestButton btn btn-success " data-toggle="modal" data-target="#editProjectModal"><i class="fa fa-edit"></i>Edit</button>
                         <button type="submit" class="requestButton btn btn-danger"><i class="fa fa-trash-alt"></i>Delete</button>
                         <br><br>
+
                         <!-- The Modal -->
                         <div class="modal" id="editProjectModal">
                             <div class="modal-dialog">
@@ -214,23 +246,23 @@
                                         <form action="" name="adduser">
                                             <div class="form-group">
                                                 <label class="title" for="firstname">Project Name:</label>
-                                                <input type="text" class=" form-control" id="projectname" required>
+                                                <input type="text" class=" form-control" id="projectname" value="" required > 
                                             </div>
                                             <li class="list-group-item  ">
-                                                <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3">Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="title" for="date">Date:</label>
-                                                        <input type="date" class="form-control" id="date" placeholder="">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="title" for="price">Price:</label>
-                                                        <input type="text" class="form-control" id="price">
-                                                    </div>
-                                                    <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
-
-
+                                            <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3">Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="title" for="date">Date:</label>
+                                                    <input type="date" class="form-control" id="date" placeholder="">
                                                 </div>
+                                                <div class="form-group">
+                                                    <label class="title" for="price">Price:</label>
+                                                    <input type="text" class="form-control" id="price">
+                                                </div>
+                                                <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
+
+
+                                            </div>
                                         </form>
                                     </div>
 
@@ -256,22 +288,22 @@
                                                 <input type="text" class=" form-control" id="projectname" required>
                                             </div>
                                             <li class="list-group-item  ">
-                                                <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3"></textarea>
-                                                <div class="form-group">
-                                                    <div>
-                                                        <label class="title" for="date">Date:</label>
-                                                        <input type="date" class="form-control" id="date" placeholder="">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="title" for="price">Price:</label>
-                                                        <input type="text" class="form-control" id="price">
-                                                    </div>
-                                                    <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
-
-
+                                            <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3"></textarea>
+                                            <div class="form-group">
+                                                <div>
+                                                    <label class="title" for="date">Date:</label>
+                                                    <input type="date" class="form-control" id="date" placeholder="">
                                                 </div>
+                                                <div class="form-group">
+                                                    <label class="title" for="price">Price:</label>
+                                                    <input type="text" class="form-control" id="price">
+                                                </div>
+                                                <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
 
-                                                <!--End of Model     -->
+
+                                            </div>
+
+                                            <!--End of Model     -->
                                         </form>
                                     </div>
 
@@ -281,14 +313,5 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            }
             <!-- End of Projects    -->
-
-        </div>
-
-
-
-
-
-</div>
-

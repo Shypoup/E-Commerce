@@ -311,3 +311,4 @@ E:\Level 3\Sem 2\z Projects\E-Commerce\E-Commerce\IA-PM\obj\Debug\IA-PM.csproj.C
 E:\Level 3\Sem 2\z Projects\E-Commerce\E-Commerce\IA-PM\obj\Debug\IA-PM.csproj.CopyComplete
 E:\Level 3\Sem 2\z Projects\E-Commerce\E-Commerce\IA-PM\obj\Debug\IA-PM.dll
 E:\Level 3\Sem 2\z Projects\E-Commerce\E-Commerce\IA-PM\obj\Debug\IA-PM.pdb
+E:\Level 3\Sem 2\z Projects\E-Commerce\E-Commerce\IA-PM\obj\Debug\IA-PM.csprojAssemblyReference.cache
