@@ -238,3 +238,13 @@
 {
     color: #fff;
 }
+
+.titlePage {
+    border-bottom: 1px solid #d9534f;
+    padding-bottom: 8px;
+}
+
+.titlePageinfo {
+    border-bottom: 1px solid #000;
+    padding-bottom: 8px;
+}

@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IA_PM.Models.homePage
+@{
     ViewBag.Title = "Home Page";
 }
 <!-------------------------- Start login Modal ----------->
@@ -128,104 +129,73 @@
 
         <!---------------Start of Projects         -->
         <div class="tab-pane container fade" id="projects">
-
-
-
+            <h3 class="titlePage text-danger"><i class="fa fa-plus"></i>Projects</h3><br/> <br/>
+            @foreach(var proj in Model.projects) {
+                if ((proj.progressid==1))
+                {
+               
             <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Project</h3>
+                <h3 class="text-danger"><i class="fa fa-bell"></i>@proj.name</h3>
                 <form action="" name="request">
                     <div class="form-group">
                         <ul class="list-group">
-                            <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
+                            <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label>@proj.name</li>
+                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label>@proj.customerid</li>
 
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>@proj.descreption</textarea>
 
-
+                            <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> @Html.DisplayFor(modelItem => proj.date)</li>
                         </ul>
                     </div>
 
 
-                    <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
-                    <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
-                    <br><br>
-                </form>
-
-            </div>
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Project </h3>
-                <form action="" name="request">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-
-                        </ul>
-                    </div>
-
-
-                    <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
-                    <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
+                    <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Pull</i></button>
+                  
                     <br><br>
                 </form>
 
             </div>
 
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Project</h3>
-                <form action="" name="request">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-
-                        </ul>
-                    </div>
-
-
-                    <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
-                    <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
-                    <br><br>
-                </form>
-
-            </div>
-
+                }
+            }
         </div>
 
         <!--    End Projects-->
         <!-------------------Project  Form ------------>
         <div class="addprojectform tab-pane container fade" id="addproject">
-            <div class="addproject">
-                <form action="" name="addproject">
-                    <div class="form-group">
-                        <label class="title" for="firstname">Project Name:</label>
-                        <input type="text" class=" form-control" id="projectname" required>
-                    </div>
-                    <li class="list-group-item  ">
-                        <label for="projectdescription" class="title">Description:</label><textarea class="TA form-control rounded-0" rows="3"></textarea>
+            <h3 class="titlePage text-danger"><i class="fa fa-plus"></i>Add Project</h3><br/> <br/>
+            @using (Html.BeginForm("SaveRecord", "Home", FormMethod.Post))
+            {
+
+                <div class="addproject">
+                    <form action="" name="addproject">
+                        <div class="form-group">
+                            <label class="title" for="firstname">Project Name:</label>
+                            @Html.TextBoxFor(model => model.project.name, new {@class = "form-control", @required = "required"})
+                        </div>
+                        <li class="list-group-item  ">
+                        <label for="projectdescription" class="title">Description:</label>
+                        @Html.TextBoxFor(model => model.project.descreption, new {@class = "form-control", @required = "required"})
                         <div class="form-group">
                             <div>
                                 <label class="title" for="date">Date:</label>
-                                <input type="date" class="form-control" id="date" placeholder="">
+                                @Html.TextBoxFor(model => model.project.date, new {@type = "date", @class = "form-control datepicker", @required = "required"})
                             </div>
                             <div class="form-group">
                                 <label class="title" for="price">Price:</label>
-                                <input type="text" class="form-control" id="price">
+                                @Html.TextBoxFor(model => model.project.price, new {@class = "form-control", @required = "required"})
                             </div>
 
                             <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
 
                         </div>
 
-                </form>
-            </div>
+                    </form>
+                </div>
 
+
+
+            }
         </div>
         <!------------End of Add Project form     -->
 
