@@ -47,8 +47,10 @@
 
             <div>
                 <div>
-                    <center> <img src="Images/bg1.jpg" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>
-                    <form name="personalinfo" id="personalinfo">
+                  @if(Model.admin.photo !=null){  <center> <img src="@Model.admin.photo" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>}
+                  @if(Model.admin.photo ==null){  <center> <img src="../../Images/user.jpg" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>}
+
+                  <form name="personalinfo" id="personalinfo">
                         <h3 class="text-center">@Model.admin.Fname</h3> <hr>
                         <h6 class="text-center">Admin</h6>
                         <h6 class="text-center">@Model.admin.mobile</h6>
@@ -139,19 +141,23 @@
 
             <div class="tab-content">
                 <div class="tab-pane container active" id="MDs">
+                @using (Html.BeginForm("Delete", "Admin", FormMethod.Post))
+                {
                     <ul class="list-group">
 
                         @foreach (var item in Model.allusers)
                         {
                             if (item.job_desc.Equals("MD"))
                             {
-                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+
+                                <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="submit" value="Delete" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
                             }
                         }
 
 
 
                     </ul>
+                }
                 </div>
 
                 <!--        MTL-->
@@ -162,7 +168,7 @@
                         {
                             if (item.job_desc.Equals("MTL"))
                             {
-                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+                        <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" value="Delete" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
                             }
                         }
                         
@@ -178,7 +184,7 @@
                     {
                         if (item.job_desc.Equals("MT"))
                         {
-                            <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+                            <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" value="Delete" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
                         }
                     }
                     </ul>
@@ -190,7 +196,7 @@
                     {
                         if (item.job_desc.Equals("customer"))
                         {
-                            <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
+                            <li class="list-group-item"> @Html.DisplayFor(modelItem => item.Fname) @Html.DisplayFor(modelItem => item.Lname) <button type="button" value="Delete" class="deleteMemberButton btn btn-danger"><i class="trashicon fa fa-trash-alt "></i></button></li>
                         }
                     }
                     </ul>
@@ -282,36 +288,40 @@
                                     </div>
                                     <!-- Modal body -->
                                     <div class="modal-body">
+                                    @using (Html.BeginForm("SaveRecord", "Home", FormMethod.Post))
+                                    {
                                         <form action="" name="adduser">
                                             <div class="form-group">
                                                 <label class="title" for="firstname">Project Name:</label>
-                                                <input type="text" class=" form-control" id="projectname" required>
+                                                @Html.TextBoxFor(model => model.project.name, new {@class = "form-control", @required = "required"})
                                             </div>
                                             <li class="list-group-item  ">
-                                            <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3"></textarea>
-                                            <div class="form-group">
-                                                <div>
-                                                    <label class="title" for="date">Date:</label>
-                                                    <input type="date" class="form-control" id="date" placeholder="">
-                                                </div>
+                                                <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label> @Html.TextAreaFor(model => model.project.descreption, new { @class = "form-control", @required = "required" })
                                                 <div class="form-group">
-                                                    <label class="title" for="price">Price:</label>
-                                                    <input type="text" class="form-control" id="price">
-                                                </div>
-                                                <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
+                                                    <div>
+                                                        <label class="title" for="date">Date:</label>
+                                                        @Html.TextBoxFor(model => model.project.date, new {@type = "date", @class = "form-control datepicker", @required = "required"})
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="title" for="price">Price:</label>
+                                                        @Html.TextBoxFor(model => model.project.price, new {@class = "form-control", @required = "required"})
+                                                    </div>
+                                                    <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
 
 
-                                            </div>
+                                                
+                                                </form>
 
-                                            <!--End of Model     -->
-                                        </form>
+
+                                    }
                                     </div>
 
-
+                                    <!--End of Model     -->
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
             }
             <!-- End of Projects    -->

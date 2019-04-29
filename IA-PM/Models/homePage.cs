@@ -9,5 +9,7 @@ namespace IA_PM.Models
     {
         public IEnumerable<project> projects { get; set; }
         public project project { get; set; }
-    }
+        public user usr { get; set; }
+    
+}
 }

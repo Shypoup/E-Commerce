@@ -14,11 +14,13 @@ namespace IA_PM.Controllers
         public ActionResult Index()
         {
             var proj = db.projects.ToList();
+            var info = db.users.SingleOrDefault(x => x.email == "hesham@mail.com");
 
             homePage hp = new homePage
             {
                 
-                projects = proj
+                projects = proj,
+                usr = info
             };
             return View(hp);
         }
@@ -47,5 +49,23 @@ namespace IA_PM.Controllers
            
             return View(proj);
         }
+
+       /* public ActionResult Register(homePage user)
+        {
+            user us =new user();
+            us.Fname = user.usr.Fname;
+            us.Lname = user.usr.Lname;
+            us.mobile = user.usr.mobile;
+            //us.photo = user.usr.photo;
+            us.email = user.usr.email;
+            us.password = user.usr.password;
+            
+           
+            db.users.Add(us);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        */
+
     }
 }
