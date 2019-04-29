@@ -182,6 +182,7 @@
       <DependentUpon>ModelPM.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\homePage.cs" />
+    <Compile Include="Models\MDPage.cs" />
     <Compile Include="Models\ModelPM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
