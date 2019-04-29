@@ -1,4 +1,4 @@
-﻿
+﻿@model IA_PM.Models.MDPage
 @{
     ViewBag.Title = "MT Profile";
     Layout = "~/Views/Shared/Customerlayout.cshtml";
@@ -26,17 +26,14 @@
                 <li class="nav-item dropdown-item">
                     <a class="nav-link" data-toggle="tab" href="#requests"><i class="fa fa-bell"></i>Requests</a>
                 </li>
-                <li class="nav-item dropdown-item">
-                    <a class="nav-link" data-toggle="tab" href="#sendRequest"><i class="fa fa-reply"></i>Send Request</a>
-                </li>
+                
                 <li class="nav-item dropdown-item">
                     <a class="nav-link" data-toggle="tab" href="#current"><i class="fa fa-list-ul"></i>Current Projects</a>
                 </li>
                 <li class="nav-item dropdown-item">
                     <a class="nav-link" data-toggle="tab" href="#delivered"><i class="fa fa-calendar-check"></i>Delivered Projects</a>
                 </li>
-                <li class="nav-item dropdown-item">
-                    <a class="nav-link" data-toggle="tab" href="#control"><i class="fa fa-cog"></i>Controls</a>
+               
 
             </ul>
         </div>
@@ -53,20 +50,25 @@
 
 
         <!--------------------------Start Personal Information ---------- -->
-        <div class="personalinfo tab-pane container-flued active" id="personalInfo">
-
-            <div>
+        <div class=" tab-pane container-flued active" id="personalInfo">
+            <h3 class="titlePageinfo text-dark"><i class="fa fa-user"></i>Personal Informations </h3><br /> <br />
+            <div class="personalinfo">
                 <div>
-                    <center> <img src="~/Images/bg1.jpg" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>
+                    @if (Model.MD.photo != null)
+                    {<center> <img src="@Model.MD.photo" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>}
+                    @if (Model.MD.photo == null)
+                    {<center> <img src="../../Images/user.jpg" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>}
+
                     <form name="personalinfo" id="personalinfo">
-                        <h3 class="text-center">Mohamed Yehia</h3> <hr>
+                        <h3 class="text-center">@Model.MD.Fname @Model.MD.Lname</h3> <hr>
                         <h6 class="text-center">Marketing Trainee</h6>
-                        <h6 class="text-center">010000000000</h6>
-                        <h6 class="text-center">mohamed@example.com</h6>
+                        <h6 class="text-center">@Model.MD.mobile</h6>
+                        <h6 class="text-center">@Model.MD.email</h6>
                     </form>
                 </div>
             </div>
         </div>
+
 
         <!--End of Personal Info-->
         <!--------------------------Start statDiagram ---------- -->
@@ -92,135 +94,75 @@
 
 
         <div class="tab-pane container fade" id="requests">
+            <h3 class="titlePage text-danger"><i class="fa fa-bell"></i>Requests</h3><br /> <br />
+            @foreach (var proj in Model.projects)
+            {
 
+                if (proj.progressid == 1) // && proj.MDId==2
+                {<div class="requestcontrol">
+                        <h3 class="text-danger"><i class="fa fa-bell"></i>Request</h3>
+                        <form action="" name="request">
+                            <div class="form-group">
+                                <ul class="list-group">
+                                    <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label>@proj.name</li>
 
-
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Request</h3>
-                <form action="" name="request">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-
-                        </ul>
+                                    <li class="list-group-item  "> <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly> @proj.descreption</textarea>
+                                </ul>
+                            </div>
+                            <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
+                            <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
+                            <br><br>
+                        </form>
                     </div>
 
-
-                    <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
-                    <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
-                    <br><br>
-                </form>
-
-            </div>
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Request</h3>
-                <form action="" name="request">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-
-                        </ul>
-                    </div>
-
-
-                    <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
-                    <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
-                    <br><br>
-                </form>
-
-            </div>
-
+                }
+            }
         </div>
 
 
-
-
-        <!------------------------Send Request ----------------------------------->
-
-        <div class="tab-pane container fade" id="sendRequest">
-
-
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-reply"></i>Send Request</h3>
-                <form action="" name="sendrequest">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-                            <li class="list-group-item  ">
-                                <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-                                <div class="form-group">
-                                    <i class="title fa fa-users"></i><label for="projectMT" class="title">Marketing Trainee:</label>
-                                    <select class="form-control" id="MT">
-                                        <option>MT1</option>
-                                        <option>MT2</option>
-                                        <option>MT3</option>
-                                        <option>MT4</option>
-                                    </select>
-                                </div>
-                        </ul>
-                    </div>
-
-
-                    <button type="submit" class="requestButton btn btn-success"><i class="fa fa-share-square">Send</i></button>
-                    <br><br>
-                </form>
-            </div>
-
-        </div>
 
 
         <!--End of Send Requests    -->
         <!--------------------------- Start of  Current Projects   -------------------------->
+        <!--------------------------- Start of  Current Projects   -------------------------->
 
         <div class="tab-pane container fade" id="current">
-
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
-                <form action="" name="control">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-                            <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Date</li>
+            <h3 class="titlePage text-danger"><i class="fa fa-list-ul"></i>Current Projects</h3><br /> <br />
 
 
-                            <ul class="list-group">
-                                <label for="projectMT" class="title"><i class=" fa fa-users"></i>Marketing Trainee:</label>
-                                <li class="list-group-item  ">MT1</li>
-                                <li class="list-group-item  ">MT2</li>
-                                <li class="list-group-item  ">MT3</li>
-                                <li class="list-group-item  ">MT4</li>
+            @foreach (var proj in Model.projects)
+            {
 
-                            </ul>
-                        </ul>
+                if (proj.progressid == 2) // && proj.MDId==2
+                {
+                    <div class="requestcontrol">
+                        <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
+                        <form action="" name="control">
+                            <div class="form-group">
+                                <ul class="list-group">
+                                    <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label>@proj.name</li>
+
+
+                                    <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>@proj.descreption</textarea>
+
+                                    <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label>@proj.date</li>
+                                    <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label>@proj.price</li>
+
+                                
+
+                            </div>
+
+
+                            <button type="submit" class="requestButton btn btn-danger"><i class="fa fa-sign-out-alt"></i>Leave</button>
+
+
+                            <br><br>
+                        </form>
+
                     </div>
 
-                    <br>
-
-                    <button type="button" class=" btn btn-danger"><i class="fa fa-edit"></i>Edit</button>
-
-                    <button type="submit" class="requestButton btn btn-danger"><i class="fa fa-sign-out-alt">Leave Project</i></button>
-                    <br><br>
-                </form>
-
-            </div>
-
+                }
+            }
 
 
 
@@ -230,37 +172,43 @@
         <!-- End of Current Project    -->
         <!--------------------------- Start of  Delivered Projects   -------------------------->
         <div class="tab-pane container fade" id="delivered">
+            <h3 class="titlePage text-danger"><i class="fa fa-calendar-check"></i>Deliverd Projects</h3><br /> <br />
+            @foreach (var proj in Model.projects)
+            {
 
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
-                <form action="" name="deliverdproject">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-                            <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Name</li>
-
+                if (proj.progressid == 3) // && proj.MDId==2
+                {
+                    <div class="requestcontrol">
+                        <h3 class="text-danger">
+                            <i class="fa fa-bell"></i>@proj.name
+                        </h3>
+                        <form action="">
+                            <div class="form-group">
+                                <ul class="list-group">
+                                    <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> @proj.name</li>
 
 
-                            <ul class="list-group">
-                                <label for="projectMT" class="title"><i class=" fa fa-users"></i>Marketing Trainee:</label>
-                                <li class="list-group-item  ">MT1</li>
-                                <li class="list-group-item  ">MT2</li>
-                                <li class="list-group-item  ">MT3</li>
-                                <li class="list-group-item  ">MT4</li>
+                                    <li class="list-group-item  "> <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>@proj.descreption</textarea>
 
-                            </ul>
-                        </ul>
+                                    <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> @proj.date</li>
+                                    <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label> @proj.price</li>
+                                    
+                                </ul>
+                            </div>
+
+
+
+                        </form>
+
                     </div>
+                }
+            }
 
 
 
-                </form>
 
-            </div>
+
+
 
 
 
@@ -268,186 +216,7 @@
 
 
 
-        <!--------------------------- Start of  Control   -------------------------->
-
-        <div class="tab-pane container fade" id="control">
-
-
-
-            <div class="row">
-                <div class="projectcontrol col-lg-10">
-                    <h2>Project Name</h2>
-                    <form action="" name="projectcontrol">
-
-                        <ul class="list-group">
-
-                            <!--         Start of Member -->
-                            <li class="list-group-item">
-                                Member1
-                                <button type="button" class="deleteMemberButton btn btn-danger" data-toggle="tooltip" title="Delete Trainee"><i class="trashicon fa fa-trash-alt "></i></button>
-
-                                <!-- Button to Open the Modal -->
-                                <button type="button" class="editMemberButton btn btn-danger" data-toggle="modal" data-target="#myModal">
-                                    <i class="fa fa-file-signature"></i>
-                                    Rate
-                                </button>
-
-                                <!-- The Modal -->
-                                <div class="modal" id="myModal">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Rate Trainee</h4>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label for="MD ">To: MD</label>
-
-
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="fname"><i class="fa fa-file-signature"></i>Feedback:</label>
-                                                        <textarea type="text" class="form-control" id="message" placeholder="Message" name="ad_message" required></textarea>
-
-                                                    </div>
-                                                    <input class="btn btn-danger btn-block" type="submit" id="sendMail" value="Send">
-
-                                                </form>
-                                            </div>
-
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End of Model     -->
-                            </li>
-                            <!--    End of Member -->
-                            <!--         Start of Member -->
-
-                            <li class="list-group-item">
-                                Member1
-                                <button type="button" class="deleteMemberButton btn btn-danger" data-toggle="tooltip" title="Delete Trainee"><i class="trashicon fa fa-trash-alt "></i></button>
-
-                                <!-- Button to Open the Modal -->
-                                <button type="button" class="editMemberButton btn btn-danger" data-toggle="modal" data-target="#myModal">
-                                    <i class="fa fa-file-signature"></i>
-                                    Rate
-                                </button>
-
-                                <!-- The Modal -->
-                                <div class="modal" id="myModal">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Rate Trainee</h4>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label for="MD ">To: MD</label>
-
-
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="fname"><i class="fa fa-file-signature"></i>Feedback:</label>
-                                                        <textarea type="text" class="form-control" id="message" placeholder="Message" name="ad_message" required></textarea>
-
-                                                    </div>
-                                                    <input class="btn btn-danger btn-block" type="submit" id="sendMail" value="Send">
-
-                                                </form>
-                                            </div>
-
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End of Model     -->
-                            </li>
-                            <!--    End of Member -->
-                            <!--         Start of Member -->
-
-                            <li class="list-group-item">
-                                Member1
-                                <button type="button" class="deleteMemberButton btn btn-danger" data-toggle="tooltip" title="Delete Trainee"><i class="trashicon fa fa-trash-alt "></i></button>
-
-                                <!-- Button to Open the Modal -->
-                                <button type="button" class="editMemberButton btn btn-danger" data-toggle="modal" data-target="#myModal">
-                                    <i class="fa fa-file-signature"></i>
-                                    Rate
-                                </button>
-
-                                <!-- The Modal -->
-                                <div class="modal" id="myModal">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Rate Trainee</h4>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="form-group">
-                                                        <label for="MD ">To: MD</label>
-
-
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="fname"><i class="fa fa-file-signature"></i>Feedback:</label>
-                                                        <textarea type="text" class="form-control" id="message" placeholder="Message" name="ad_message" required></textarea>
-
-                                                    </div>
-                                                    <input class="btn btn-danger btn-block" type="submit" id="sendMail" value="Send">
-
-                                                </form>
-                                            </div>
-
-                                            <!-- Modal footer -->
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--End of Model     -->
-                            </li>
-                            <!--    End of Member -->
-
-                        </ul>
-
-                    </form>
-
-
-                </div>
-
-            </div>
-        </div>
-
-        <!--End of Control   -->
+       
 
 
 

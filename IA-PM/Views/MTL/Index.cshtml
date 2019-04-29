@@ -1,5 +1,4 @@
-﻿@model IA_PM.Models.user
-
+﻿@model IA_PM.Models.MDPage
 @{
     ViewBag.Title = "MTL Profile";
     Layout = "~/Views/Shared/MDlayout.cshtml";
@@ -53,16 +52,20 @@
 
 
         <!--------------------------Start Personal Information ---------- -->
-        <div class="personalinfo tab-pane container-flued active" id="personalInfo">
-
-            <div>
+        <div class=" tab-pane container-flued active" id="personalInfo">
+            <h3 class="titlePageinfo text-dark"><i class="fa fa-user"></i>Personal Informations </h3><br /> <br />
+            <div class="personalinfo">
                 <div>
-                    <center> <img src="Images/bg1.jpg" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>
+                    @if (Model.MD.photo != null)
+                    {<center> <img src="@Model.MD.photo" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>}
+                    @if (Model.MD.photo == null)
+                    {<center> <img src="../../Images/user.jpg" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>}
+
                     <form name="personalinfo" id="personalinfo">
-                        <h3 class="text-center">Mohamed Yehia</h3> <hr>
-                        <h6 class="text-center">Marketing Trainee</h6>
-                        <h6 class="text-center">010000000000</h6>
-                        <h6 class="text-center">mohamed@example.com</h6>
+                        <h3 class="text-center">@Model.MD.Fname @Model.MD.Lname</h3> <hr>
+                        <h6 class="text-center">Marketing Team Leader</h6>
+                        <h6 class="text-center">@Model.MD.mobile</h6>
+                        <h6 class="text-center">@Model.MD.email</h6>
                     </form>
                 </div>
             </div>
@@ -92,86 +95,77 @@
 
 
         <div class="tab-pane container fade" id="requests">
+            <h3 class="titlePage text-danger"><i class="fa fa-bell"></i>Requests</h3><br /> <br />
+            @foreach (var proj in Model.projects)
+            {
 
+                if (proj.progressid == 1) // && proj.MDId==2
+                {<div class="requestcontrol">
+                        <h3 class="text-danger"><i class="fa fa-bell"></i>Request</h3>
+                        <form action="" name="request">
+                            <div class="form-group">
+                                <ul class="list-group">
+                                    <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label>@proj.name</li>
 
-
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Request</h3>
-                <form action="" name="request">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-
-                        </ul>
+                                    <li class="list-group-item  "> <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly> @proj.descreption</textarea>
+                                </ul>
+                            </div>
+                            <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
+                            <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
+                            <br><br>
+                        </form>
                     </div>
 
-
-                    <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
-                    <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
-                    <br><br>
-                </form>
-
-            </div>
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Request</h3>
-                <form action="" name="request">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-
-                        </ul>
-                    </div>
-
-
-                    <button type="submit" class="requestButton btn btn-success"><i class="fa fa-check">Accept</i></button>
-                    <button type="button" class="requestButton btn btn-danger"><i class="fa fa-times-circle">Reject</i></button>
-                    <br><br>
-                </form>
-
-            </div>
-
+                }
+            }
         </div>
-
 
 
 
         <!------------------------Send Request ----------------------------------->
 
         <div class="tab-pane container fade" id="sendRequest">
-
+            <h3 class="titlePage text-danger"><i class="fa fa-reply"></i>Send Requests</h3><br /> <br />
 
             <div class="requestcontrol">
                 <h3 class="text-danger"><i class="fa fa-reply"></i>Send Request</h3>
                 <form action="" name="sendrequest">
                     <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-                            <li class="list-group-item  ">
-                                <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
+                        <i class="title fa fa-street-view"></i><label for="projectML " class="title">Projects:</label>
+                        <select class="form-control" id="ML">
+                            @foreach (var pro in Model.projects)
+                            {
+                                if (pro.progressid == 1) //&& pro.MDID==
+                                {
 
-                                <div class="form-group">
-                                    <i class="title fa fa-users"></i><label for="projectMT" class="title">Marketing Trainee:</label>
-                                    <select class="form-control" id="MT">
-                                        <option>MT1</option>
-                                        <option>MT2</option>
-                                        <option>MT3</option>
-                                        <option>MT4</option>
-                                    </select>
-                                </div>
-                        </ul>
+                                    <option>@pro.name</option>
+                                }
+
+
+                            }
+
+
+                        </select>
                     </div>
+                    
+                    <div class="form-group">
+                        <i class="title fa fa-users"></i><label for="projectML " class="title">Marketing Trainees:</label>
+                        <select class="form-control" id="ML" multiple>
+                            @foreach (var mt in Model.users)
+                            {
+                                if (mt.usertype == 4)
+                                {
+
+                                    <option>@mt.Fname @mt.Lname</option>
+                                }
+
+
+                            }
+
+
+                        </select>
+                    </div>
+
 
 
                     <button type="submit" class="requestButton btn btn-success"><i class="fa fa-share-square">Send</i></button>
@@ -186,85 +180,97 @@
         <!--------------------------- Start of  Current Projects   -------------------------->
 
         <div class="tab-pane container fade" id="current">
-
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
-                <form action="" name="control">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-                            <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Date</li>
+            <h3 class="titlePage text-danger"><i class="fa fa-list-ul"></i>Current Projects</h3><br /> <br />
 
 
-                            <ul class="list-group">
-                                <label for="projectMT" class="title"><i class=" fa fa-users"></i>Marketing Trainee:</label>
-                                <li class="list-group-item  ">MT1</li>
-                                <li class="list-group-item  ">MT2</li>
-                                <li class="list-group-item  ">MT3</li>
-                                <li class="list-group-item  ">MT4</li>
+            @foreach (var proj in Model.projects)
+            {
 
-                            </ul>
-                        </ul>
+                if (proj.progressid == 2) // && proj.MDId==2
+                {
+                    <div class="requestcontrol">
+                        <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
+                        <form action="" name="control">
+                            <div class="form-group">
+                                <ul class="list-group">
+                                    <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label>@proj.name</li>
+
+
+                                    <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>@proj.descreption</textarea>
+
+                                    <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label>@proj.date</li>
+                                    <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label>@proj.price</li>
+
+
+
+                            </div>
+
+
+                            <button type="submit" class="requestButton btn btn-danger"><i class="fa fa-sign-out-alt"></i>Leave</button>
+
+
+                            <br><br>
+                        </form>
+
                     </div>
 
-                    <br>
-
-                    <button type="button" class=" btn btn-danger"><i class="fa fa-edit"></i>Edit</button>
-
-                    <button type="submit" class="requestButton btn btn-danger"><i class="fa fa-sign-out-alt">Leave Project</i></button>
-                    <br><br>
-                </form>
-
-            </div>
-
+                }
+            }
 
 
 
         </div>
-
 
         <!-- End of Current Project    -->
         <!--------------------------- Start of  Delivered Projects   -------------------------->
         <div class="tab-pane container fade" id="delivered">
+            <h3 class="titlePage text-danger"><i class="fa fa-calendar-check"></i>Deliverd Projects</h3><br /> <br />
+            @foreach (var proj in Model.projects)
+            {
 
-            <div class="requestcontrol">
-                <h3 class="text-danger"><i class="fa fa-bell"></i>Project Name</h3>
-                <form action="" name="deliverdproject">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-                            <li class="list-group-item  "><label for="projecMD" class="title"><i class=" fa fa-street-view"></i>Marketing Director:</label> Name</li>
-                            <li class="list-group-item  ">  <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-                            <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> Name</li>
-
+                if (proj.progressid == 3) // && proj.MDId==2
+                {
+                    <div class="requestcontrol">
+                        <h3 class="text-danger">
+                            <i class="fa fa-bell"></i>@proj.name
+                        </h3>
+                        <form action="">
+                            <div class="form-group">
+                                <ul class="list-group">
+                                    <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> @proj.name</li>
 
 
-                            <ul class="list-group">
-                                <label for="projectMT" class="title"><i class=" fa fa-users"></i>Marketing Trainee:</label>
-                                <li class="list-group-item  ">MT1</li>
-                                <li class="list-group-item  ">MT2</li>
-                                <li class="list-group-item  ">MT3</li>
-                                <li class="list-group-item  ">MT4</li>
+                                    <li class="list-group-item  "> <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>@proj.descreption</textarea>
 
-                            </ul>
-                        </ul>
+                                    <li class="list-group-item  "><label for="projectduedate" class="title"><i class=" fa fa-stopwatch"></i>Due Date:</label> @proj.date</li>
+                                    <li class="list-group-item  "><label for="projectprice" class="title"><i class=" fa fa-money-bill-wave"></i>Price:</label> @proj.price</li>
+
+                                </ul>
+                            </div>
+
+
+
+                        </form>
+
                     </div>
+                }
+            }
 
 
 
-                </form>
 
-            </div>
+
+
 
 
 
         </div>
+
+
+
+
+
+
 
 
 
