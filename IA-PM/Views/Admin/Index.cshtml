@@ -14,14 +14,14 @@
             <i class="fas fa-cog fa-spin fa-2x"></i><br>
             Press<br> Here
         </button>
-        <div class="dropdown-menu">
+        <div class="dropdown-menu form-actions no-color">
             <ul class="   nav flex-column bg-dark ">
                 <li class="nav-item dropdown-item">
                     <a class="nav-link active" data-toggle="tab" href="#personalInfo"><i class="fa fa-user"></i>Prsonal Info.</a>
                 </li>
 
                 <li class="nav-item dropdown-item">
-                    <a class="nav-link" data-toggle="tab" href="#users"><i class="fa fa-users"></i>Users</a>
+                    <a class="nav-link" href="@Url.Action("ListUsers","Admin")"><i class="fa fa-users"></i>Users</a>
                 </li>
 
                 <li class="nav-item dropdown-item">
@@ -47,7 +47,7 @@
 
             <div>
                 <div>
-                  @if(Model.admin.photo !=null){  <center> <img src="@Model.admin.photo" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>}
+                 
                   @if(Model.admin.photo ==null){  <center> <img src="../../Images/user.jpg" class="imgprofile rounded-circle" alt="Profile Picture"></center><br>}
 
                   <form name="personalinfo" id="personalinfo">

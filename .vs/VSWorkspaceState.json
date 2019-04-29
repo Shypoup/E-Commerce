@@ -7,8 +7,11 @@
     "\\IA-PM\\Controllers",
     "\\IA-PM\\Models",
     "\\IA-PM\\Views",
-    "\\IA-PM\\Views\\Shared"
+    "\\IA-PM\\Views\\Admin",
+    "\\IA-PM\\Views\\Customer",
+    "\\IA-PM\\Views\\Home",
+    "\\IA-PM\\Views\\MD"
   ],
-  "SelectedNode": "\\IA-PM\\App_Data\\aspnet-IA-PM-20190408114732.mdf",
+  "SelectedNode": "\\IA-PM\\Views\\MD\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }
