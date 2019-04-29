@@ -16,13 +16,13 @@ namespace IA_PM.Controllers
         {
 
             var md = db.users.SingleOrDefault(x => x.email == "hesham@mail.com");
-
+            var usrs = db.users.ToList();
             var proj = db.projects.ToList();
 
             MDPage Md = new MDPage
             {
                 MD = md,
-
+                users = usrs,
                 projects = proj
             };
             return View(Md);
