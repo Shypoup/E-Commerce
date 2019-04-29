@@ -125,34 +125,58 @@
             <div class="requestcontrol">
                 <h3 class="text-danger"><i class="fa fa-reply"></i>Send Request</h3>
                 <form action="" name="sendrequest">
-                    <div class="form-group">
-                        <ul class="list-group">
-                            <li class="list-group-item  "><label for="projectname" class="title"><i class=" fa fa-tasks"></i>Project:</label> Name</li>
-                            <li class="list-group-item  "><label for="projectowner" class="title"><i class=" fa fa-user-tie"></i>Owner:</label> Name</li>
-
-                            <li class="list-group-item  ">
-                                <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label><textarea class="TA form-control rounded-0" rows="3" readonly>Project descriptions provide the following details to the applicants: the problem the project will address, a set of goals for the project, the overall objectives for the project, as well as a project plan that describes the activities the members will undertake.  The project description also includes the location of the project, the length of the project, and any benefits you will receive while serving on the project.</textarea>
-
-                                <div class="form-group">
-                                    <i class="title fa fa-user-secret"></i><label for="projectML " class="title">Marketing Leader:</label>
-                                    <select class="form-control" id="ML">
-                                        <option>ML1</option>
-                                        <option>ML2</option>
-                                        <option>ML3</option>
-                                        <option>ML4</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <i class="title fa fa-users"></i><label for="projectMT" class="title">Marketing Trainee:</label>
-                                    <select class="form-control" id="MT">
-                                        <option>MT1</option>
-                                        <option>MT2</option>
-                                        <option>MT3</option>
-                                        <option>MT4</option>
-                                    </select>
-                                </div>
-                        </ul>
-                    </div>
+                <div class="form-group">
+                    <i class="title fa fa-street-view"></i><label for="projectML " class="title">Projects:</label>
+                    <select class="form-control" id="ML">
+                        @foreach (var pro in Model.projects)
+                        {
+                            if (pro.progressid==1 ) //&& pro.MDID==
+                            {
+                                                            
+                                <option>@pro.name</option>
+                            }
+                                                    
+                                                    
+                        }
+                                                    
+                                                   
+                    </select>
+                </div>
+                <div class="form-group">
+                    <i class="title fa fa-user-secret"></i><label for="projectML " class="title">Marketing Team Leader:</label>
+                    <select class="form-control" id="ML" >
+                        @foreach (var mt in Model.users)
+                        {
+                            if (mt.usertype==3)
+                            {
+                                                
+                                <option>@mt.Fname @mt.Lname</option>
+                            }
+                                        
+                                        
+                        }
+                                        
+                                       
+                    </select>
+                </div>
+                <div class="form-group">
+                    <i class="title fa fa-users"></i><label for="projectML " class="title">Marketing Trainees:</label>
+                    <select class="form-control" id="ML" multiple>
+                        @foreach (var mt in Model.users)
+                        {
+                            if (mt.usertype==4)
+                            {
+                                                
+                                <option>@mt.Fname @mt.Lname</option>
+                            }
+                                        
+                                        
+                        }
+                                        
+                                       
+                    </select>
+                </div>
+                       
 
 
                     <button type="submit" class="requestButton btn btn-success"><i class="fa fa-share-square">Send</i></button>
@@ -197,7 +221,8 @@
                             </div>
 
 
-
+                            <button type="submit" class="requestButton btn btn-danger" ><i class="fa fa-sign-out-alt"></i>Leave</button>
+                       
                             <button type="button" class="requestButton btn btn-danger" data-toggle="modal" data-target="#editProjectModal"><i class="fa fa-edit"></i>Edit</button>
                             <br><br>
                         </form>
@@ -208,12 +233,12 @@
             }
             <!-- The Modal -->
                     <div class="modal" id="editProjectModal">
-                        <div class="modal" id="addProjectModal">
+                       
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class=" modal-title"><i class="fa fa-plus"></i> Add Project</h4>
+                                        <h4 class=" modal-title"><i class="fa fa-cog"></i> Edit Project</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
                                     <!-- Modal body -->
@@ -226,18 +251,18 @@
                                                     @Html.TextBoxFor(model => model.project.name, new { @class = "form-control", @required = "required" })
                                                 </div>
                                                 <li class="list-group-item  ">
-                                                    <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label> @Html.TextAreaFor(model => model.project.descreption, new { @class = "form-control", @required = "required" })
-                                                    <div class="form-group">
-                                                        <div>
-                                                            <label class="title" for="date">Date:</label>
-                                                            @Html.TextBoxFor(model => model.project.date, new { @type = "date", @class = "form-control datepicker", @required = "required" })
-                                                        </div>
+                                                <label for="projectdescription" class="title"><i class="fas fa-pencil-alt prefix"></i>Description:</label> @Html.TextAreaFor(model => model.project.descreption, new { @class = "form-control", @required = "required" })
+                                                <div class="form-group">
+                                                    <div>
+                                                        <label class="title" for="date">Date:</label>
+                                                        @Html.TextBoxFor(model => model.project.date, new { @type = "date", @class = "form-control datepicker", @required = "required" })
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label class="title" for="price">Price:</label>
-                                                        @Html.TextBoxFor(model => model.project.price, new { @class = "form-control", @required = "required" })
-                                                    </div>
-                                                    <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="title" for="price">Price:</label>
+                                                    @Html.TextBoxFor(model => model.project.price, new { @class = "form-control", @required = "required" })
+                                                </div>
+                                                <br><br><button type="submit" class="btn btn-danger btn-block">Submit</button>
 
 
 
@@ -249,7 +274,9 @@
 
                                     </div>
 
-
+                                </div>
+                            </div>
+                            </div></div>
                                     <!-- End of Current Project    -->
                                     <!--------------------------- Start of  Delivered Projects   -------------------------->
                                     <div class="tab-pane container fade" id="delivered">

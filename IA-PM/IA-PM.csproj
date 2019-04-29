@@ -178,6 +178,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\adminPage.cs" />
+    <Compile Include="Models\CustomerPage.cs" />
     <Compile Include="Models\hiring.cs">
       <DependentUpon>ModelPM.tt</DependentUpon>
     </Compile>
